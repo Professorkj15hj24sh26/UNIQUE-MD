@@ -33,7 +33,7 @@ env:
   OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
   OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFT_TOKEN }}
   # 🖊️ EDIT to set the kube context's namespace after login. Leave blank to use your user's default namespace.
-  OPENSHIFT_NAMESPACE: ""
+  OPENSHIFT_NAMESPACE: "PROFESSOR"
 
   # 🖊️ EDIT to set a name for your OpenShift app, or a default one will be generated below.
   APP_NAME: ""
@@ -200,3 +200,8 @@ jobs:
         echo "==================================================================================="
         echo
         echo "Your app can be taken down with: \"oc delete all --selector='${{ env.SELECTOR }}'\""
+                    - name: EKS on Fargate
+  # You may pin to the exact commit or the version.
+  # uses: aws-actions/amazon-eks-fargate@fa91b1ce6e342eb17a1d57df976506d02f074640
+  uses: aws-actions/amazon-eks-fargate@v0.1.1
+          
